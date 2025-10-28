@@ -1,0 +1,42 @@
+.notion-header,
+.notion-header .notion-nav-header,
+.notion-collection-row {
+  display: none;
+}
+
+.notion-frame {
+  width: 90vw;
+}
+
+.notion {
+  background-color: transparent !important;
+}
+
+.notion-aside-table-of-contents {
+  width: 66.666667%;
+  max-width: 300px;
+  background-color: transparent;
+.notion-aside-table-of-contents-header {
+  display: none;
+}
+}
+.notion-table-of-contents-item-body {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+.notion-table-of-contents-active-item span {
+  color: #ef4444 !important; /* Tailwind's red-500 */
+}
+}
+/* 
+.notion-table-of-contents-item-body {
+  @apply truncate py-[1px];
+}
+
+.notion-table-of-contents-active-item span {
+  @apply !text-red-500;
+}
+
+.notion-page-content img{
+    position: static !important;
+} */
