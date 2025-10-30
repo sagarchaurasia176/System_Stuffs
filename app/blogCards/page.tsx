@@ -6,6 +6,10 @@ import PostCard from "@/app/components/notion-page/notion-post-Card";
 // Post Grid
 export default function PostsGrid({ allPosts }: { allPosts: Post[] }) {
   const rootRef = useRef<HTMLDivElement>(null);
+  
+  // Add safety check for undefined or null
+  const posts = allPosts || [];
+  
   return (
     <div
       ref={rootRef}
@@ -18,12 +22,12 @@ export default function PostsGrid({ allPosts }: { allPosts: Post[] }) {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
         </div>
-        {allPosts.length ? (
+        {posts.length > 0 ? (
           <ul
             id="posts-grid"
             className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
           >
-            {allPosts.map((post, index) => (
+            {posts.map((post, index) => (
               <li
                 key={post.slug}
                 className="transform transition-all duration-300 hover:scale-105"
