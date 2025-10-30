@@ -4,6 +4,7 @@ import "./globals.css";
 import "react-notion-x/src/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
 import "katex/dist/katex.min.css";
+import NavigationPage from "./ui/NavigationPage";
 // import Header from "./components/header/Navbar";
 // import Provider from "./components/provider";
 
@@ -33,7 +34,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <NavigationPage/>
+        <main>{children}</main>
       </body>
     </html>
   );

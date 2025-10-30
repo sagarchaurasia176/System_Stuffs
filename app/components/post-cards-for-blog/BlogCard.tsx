@@ -2,8 +2,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Post } from "@/app/types/post";
-
-// post cards for blog page for the list of posts
 // Post Card Component !
 export default function PostCard({
   post: { slug, title, cover,desc},
@@ -11,14 +9,12 @@ export default function PostCard({
   post: Post;
 }) {
   return (
-    <>
       <Link href={`/${slug}`}>
-        <article className="mx-auto flex max-w-[25rem] flex-col overflow-hidden rounded-xl shadow-xl shadow-gray-400 transition-all duration-300 hover:scale-[1.05] hover:shadow-2xl dark:shadow-black">
+        <div className="mx-auto flex bg-slate-950 max-w-[25rem] flex-col overflow-hidden rounded-xl shadow-xl shadow-gray-400 transition-all duration-300 hover:scale-[1.05] hover:shadow-2xl dark:shadow-black">
           <div className="relative h-60">
             <Image
               src={cover}
               alt="cover image"
-              fill
               style={{ objectFit: "cover" }}
               placeholder="blur"
               width={400}
@@ -31,8 +27,7 @@ export default function PostCard({
               {desc}
             </p>
           </div>
-        </article>
+        </div>
       </Link>
-    </>
   );
 }

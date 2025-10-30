@@ -5,7 +5,6 @@ import Link from "next/link";
 import NotionPage from "../components/home/page";
 import { getRecordMap } from "../libs/notion";
 import { getAllPostsFromNotion } from "../services/posts";
-import { Post } from "@/app/types/post";
 
 export default async function PostPage({
   params: { slug },
@@ -13,7 +12,6 @@ export default async function PostPage({
   params: { slug: string };
 }) {
   const allPosts = await getAllPostsFromNotion();
-  console.log("All Posts:", allPosts); // Debugging line to check all posts
   const post = allPosts.find((p) => p.slug === slug);
 
   if (!post) {
@@ -22,29 +20,19 @@ export default async function PostPage({
 
   if (!post.published) {
     return (
-      <article className="mx-auto bg-slate-950 text-center">
+      <div className="mx-auto bg-slate-950 text-center">
         <h2 className="text-3xl font-bold">Post Not Found</h2>
         <Link href="/">
           <span className="mr-2">&larr;</span>
           <span>Go to list page</span>
         </Link>
-      </article>
+      </div>
     );
   }
-
-  const relatedPosts: Post[] = allPosts.filter(
-    (p) =>
-      p.slug !== slug &&
-      p.published &&
-      p.categories.some((v) => post.categories.includes(v))
-  );
-
-  // Fetch Notion record map for react-notion-x
   const recordMap = await getRecordMap(post.id);
-
   return (
     <>
-      <article className="flex flex-col items-center bg-slate-950 text-white">
+      <div className="flex flex-col items-center bg-slate-950 text-white">
         <div className="relative aspect-[3/2] w-[90vw] max-w-[900px]">
           <Image
             src={post.cover}
@@ -56,11 +44,8 @@ export default async function PostPage({
             className="rounded-md object-cover"
           />
         </div>
-
         <NotionPage post={post} recordMap={recordMap} />
-      </article>
-      {/* You can enable related posts here */}
-      {/* <RelatedPosts posts={relatedPosts} /> */}
+      </div>
     </>
   );
 }
@@ -87,7 +72,6 @@ export async function generateMetadata({
               url: post.cover,
               width: 1200,
               height: 630,
-
               alt: post.title ?? "Cover image",
             },
           ],

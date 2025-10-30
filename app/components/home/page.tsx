@@ -25,12 +25,12 @@ export default function NotionPage({
       <NotionRenderer
         recordMap={recordMap}
         fullPage={false}
-        darkMode={mounted ? theme === "white" : "dark"}
+        darkMode={mounted ? theme === "dark" : false}
         showTableOfContents
         forceCustomImages
         disableHeader
         className="w-full max-w-3xl px-4 sm:px-6  prose-img:rounded-md text-white"
-        components={{ nextImage: Image }}
+        // components={{ nextImage: Image }}
         mapImageUrl={(url, block) => mapImageUrl(url as any, block) || ""}
       />
     </div>

@@ -7,13 +7,6 @@ import { Menu, X } from "lucide-react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // const NAV_ITEMS = [
-  //   { name: "Home", path: "/" },
-  //   { name: "Blogs", path: "/blogs" },
-  //   { name: "About", path: "/about" },
-  //   { name: "Contact", path: "/contact" },
-  // ];
-
   return (
     <header className="w-full shadow-md text-center sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -22,20 +15,7 @@ export default function Navbar() {
           DevOps<span className="text-gray-800">By Sagar</span>
         </Link>
 
-        {/* Desktop Menu */}
-        {/* <ul className="hidden md:flex space-x-8">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.path}>
-              <Link
-                href={item.path}
-                className="text-gray-700 hover:text-blue-600 font-medium transition duration-200"
-              >
-                {item.name}
-              </Link>
-            </li>
-          ))}
-        </ul> */}
-
+       
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -51,19 +31,7 @@ export default function Navbar() {
             <Link href="/" className="text-2xl font-bold text-blue-600 tracking-wide">
           DevOps<span className="text-gray-800">By Sagar</span>
         </Link>
-          {/* <ul className="flex flex-col items-center space-y-4 py-4">
-            {NAV_ITEMS.map((item) => (
-              <li key={item.path}>
-                <Link
-                  href={item.path}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition duration-200"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul> */}
+        
         </div>
       )}
     </header>

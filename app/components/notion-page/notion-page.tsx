@@ -3,14 +3,11 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import { ExtendedRecordMap, Block } from "notion-types";
 import { NotionRenderer } from "react-notion-x";
-import { Post } from "@/app/types/post";
 import useMounted from "@/app/hooks/useMounted";
 
 export default function NotionPage({
-  post,
   recordMap,
 }: {
-  post: Post;
   recordMap: ExtendedRecordMap;
 }) {
   const { theme } = useTheme();
@@ -18,7 +15,7 @@ export default function NotionPage({
 
   return (
     <NotionRenderer
-      darkMode={mounted ? theme === "dark" : false}
+      darkMode ={mounted ? theme === "white" : false}
       recordMap={recordMap}
       fullPage
       forceCustomImages

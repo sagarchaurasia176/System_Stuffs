@@ -28,15 +28,4 @@
   color: #ef4444 !important; /* Tailwind's red-500 */
 }
 }
-/* 
-.notion-table-of-contents-item-body {
-  @apply truncate py-[1px];
-}
 
-.notion-table-of-contents-active-item span {
-  @apply !text-red-500;
-}
-
-.notion-page-content img{
-    position: static !important;
-} */

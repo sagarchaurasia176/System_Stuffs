@@ -4,13 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function PostCard({
-  post: { slug, cover, blurUrl, title, desc /*, categories */ },
+  post: { slug, cover, blurUrl, title, desc},
 }: {
   post: Post;
 }) {
   return (
-    <Link href={`/${slug}`} className="group">
-      <article className="relative mx-auto flex h-[28rem] max-w-[22rem] flex-col overflow-hidden rounded-2xl bg-slate-950 transition-all duration-500 hover:-translate-y-2 dark:bg-gray-900">
+    <div className="group">
+    <Link href={`/${slug}`}>
+      <div className="relative mx-auto flex h-[28rem] max-w-[22rem] flex-col overflow-hidden rounded-2xl bg-slate-950 transition-all duration-500 hover:-translate-y-2 dark:bg-gray-900">
         {/* Image Container with Overlay */}
         <div className="relative h-64 overflow-hidden">
           <Image
@@ -60,7 +61,8 @@ export default function PostCard({
 
         {/* Bottom Accent Line */}
         <div className="h-1 w-0 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500 group-hover:w-full" />
-      </article>
+      </div>
     </Link>
+    </div>
   );
 }
