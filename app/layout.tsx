@@ -19,11 +19,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DevOpsBySagar",
+  title: "Dev-Ops | By Sagar",
   description: "A blog about DevOps practices and tools",
 };
 
-// Root layouts 
+// Root layouts
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,10 +31,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+      <link rel="icon" href="/logo.svg" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavigationPage/>
+        <NavigationPage />
         <main>{children}</main>
       </body>
     </html>
